@@ -1,11 +1,12 @@
-<img src="../../assets/logo 2.png" style="display: inline; margin-left: 2%;margin-bottom: 0%; width: 13.7%;" [routerLink]="['']"/>
-    <div style="margin-top: 1.5%; width: 150%;">
-      <p-dock [model]="items" position="top">
-          <ng-template pTemplate="item" let-item >
-            <img [src]="item.icon" [alt]="item.label" width="90%"  [routerLink]="item.routerLink"/>
-          </ng-template>
-      </p-dock>
-    </div>
+<img src="../../../assets/logo.png" style="display: inline; margin-left: 2%;margin-bottom: 0%; width: 13.7%;"
+  [routerLink]="['']" />
+<div style="margin-top: 1.5%; width: 150%;">
+  <p-dock [model]="items" position="top">
+    <ng-template pTemplate="item" let-item>
+      <img [src]="item.icon" [alt]="item.label" width="90%" [routerLink]="item.routerLink" />
+    </ng-template>
+  </p-dock>
+</div>
 
 <div class="container">
 </div><br>
