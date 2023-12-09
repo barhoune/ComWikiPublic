@@ -1,0 +1,150 @@
+.series-card {
+  width: 16rem;
+  height: 10cm;
+  border: 20px solid black;
+  border-radius: 8%;
+  color: white;
+  background-color: black;
+  shape-rendering: geometricPrecision;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  margin: 0.8mm;
+  box-shadow: black;
+}
+
+.label {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 3rem;
+  height: 3rem;
+  background-image: url('../../../assets/cml.png');
+  background-size: cover;
+  background-position: center;
+  background-color: black;
+  border-radius: 0;
+  border-color: black;
+}
+
+.series-card:hover:not(.no-hover-transform) {
+  transform: scale(1.2);
+}
+
+.series-card .card-img-top {
+  object-fit: cover;
+  object-position: top;
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+  transition: height 0.3s ease;
+}
+
+.series-card:hover .card-img-top {
+  height: 90%;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 10%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  transform: translateY(100%);
+  background-color: rgba(0, 0, 0, 1);
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.overlay h5 {
+  font-family: 'Altero';
+  font-size: 18px;
+  margin: 0;
+  color: white;
+  border-radius: 8px;
+}
+
+.series-card:hover:not(.no-hover-transform) .overlay {
+  transform: translateY(0);
+}
+
+.custom-image {
+  height: 90%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.page-item {
+  background-color: red;
+}
+
+.page-link {
+  color: white;
+
+}
+
+.page-link-red {
+  background-color: red;
+  color: white;
+}
+
+.page-link-red-text {
+  color: red;
+}
+
+.series-card.dc {
+  border-color: #0d6efd;
+  background-color: #0d6efd;
+}
+
+.label.dc {
+  background-color: #0d6efd;
+}
+
+.overlay.dc {
+  background-color: #0d6efd;
+}
+
+.series-card.marvel {
+  border-color: #ff171f;
+  background-color: #ff171f;
+}
+
+.label.marvel {
+  background-color: #ff171f;
+}
+
+.overlay.marvel {
+  background-color: #ff171f;
+}
+
+.label {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 5px;
+  border-color: black;
+}
+
+.label.dc {
+  background-color: #0d6efd;
+  background-image: url('../../../assets/dcl.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.label.marvel {
+  background-color: #ff171f;
+  background-image: url('../../../assets/marvl.png');
+  background-size: cover;
+  background-position: center;
+}
+
+

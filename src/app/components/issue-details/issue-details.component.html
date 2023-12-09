@@ -1,0 +1,6 @@
+<div *ngIf="issue">
+
+  <h2>Details for {{ issue.results.volume.name}}</h2>
+
+  <div [innerHTML]="issue.results.description"></div>
+</div>

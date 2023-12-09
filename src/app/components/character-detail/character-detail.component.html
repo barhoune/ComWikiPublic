@@ -1,0 +1,14 @@
+<div class="container" style="margin-top: 2%;">
+  <div *ngIf="character">
+    <h1 style="text-align: center;display: block;font-family: 'Altero'; font-size: 70px;color: rgb(209, 16, 16);">
+      {{character.results.name}}
+    </h1><br>
+    <div class="card"
+      style="border: none; background: rgb(251,255,124);
+background: linear-gradient(146deg, rgba(255, 224, 124, 0.229) 0%, rgba(255,113,0,0.17270658263305327) 38%, rgba(251,255,124,0.23) 100%);">
+      <div class="card-body " style="margin-top: 5%;  ">
+        <div style="width: 70%; margin-left: 3cm; " [innerHTML]="character.results.description"></div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,133 @@
+.content__data p a {
+  color: white !important;
+  text-decoration: none !important;
+}
+
+.content {
+  color: #fff;
+}
+
+.content__main {
+  background-position: right;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 576px) {
+  .content__main {
+    background-position: calc((((100vw / 2.222222) - 20px) / 1.5) / 2) 0;
+    background-size: cover;
+  }
+}
+
+.content__container {
+  padding-top: 60px;
+  background-image: linear-gradient(to right, rgba(32, 32, 32, 1) calc((50vw - 170px) - 340px), rgba(32, 32, 32, 0.84) 30%, rgba(32, 32, 32, 0.84) 100%);
+}
+
+@media (max-width: 576px) {
+  .content__container {
+    background-image: none;
+    padding-top: 0;
+  }
+}
+
+.content__info {
+  padding: 30px 0;
+  display: flex;
+  gap: 30px;
+}
+
+.content__info img {
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  width: 320px;
+  height: 500px;
+}
+
+@media (max-width: 576px) {
+  .content__info {
+    background-image: linear-gradient(to right, rgba(32, 32, 32, 1) 20%, rgba(32, 32, 32, 0) 50%);
+  }
+
+  .content__info img {
+    margin-left: 20px;
+    width: 320px;
+    height: 500px;
+  }
+}
+
+.content__data,
+.content__data-mobile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.content__data p,
+.content__data-mobile p {
+  margin-top: 0;
+}
+
+.content__data h3,
+.content__data-mobile h3 {
+  font-weight: 500;
+  color: #fff;
+  font-size: 1.1em;
+  font-style: italic;
+  opacity: 0.8;
+  margin: 0;
+}
+
+.content__data h4,
+.content__data-mobile h4 {
+  margin: 15px 0;
+}
+
+.content__data--categories,
+.content__data-mobile--categories {
+  display: flex;
+  gap: 6px;
+}
+
+@media (max-width: 576px) {
+
+  .content__data,
+  .content__data-mobile {
+    display: none;
+  }
+
+  .content__data h2,
+  .content__data-mobile h2 {
+    margin: 0;
+    font-size: 1.25rem;
+  }
+
+  .content__data h3,
+  .content__data-mobile h3 {
+    margin-top: 10px;
+  }
+
+  .content__data h4,
+  .content__data-mobile h4 {
+    margin: 10px 0;
+  }
+
+  .content__data p,
+  .content__data-mobile p {
+    font-size: 0.9rem;
+  }
+}
+
+.btn-link {
+  text-decoration: none;
+}
+
+.description {
+  display: inline;
+}
+
+.white-text a {
+  color: white;
+  text-decoration: none;
+}

@@ -1,0 +1,92 @@
+<div
+  style="background-color: #ffe922; width: 30cm; height: 14cm; border: 4px solid black; padding: 10px; position: absolute; top: calc(50% + 1cm); left: 50%; transform: translate(-50%, -50%);">
+  <h1 style="margin-left: 9.5cm; position: absolute; top: 1.5cm;font-family: 'Corduroy', sans-serif;">{{
+    volume.results.name }}</h1>
+
+  <img [src]="volume.results.image.medium_url"
+    style="width: 300px;height: 420px;; margin-left: 1cm; margin-top: 1.2cm; border: 3px solid black;">
+
+  <h4 style="margin-left: 9.5cm; position: absolute; top: 2.8cm;font-family: 'Film Noir Adventure';">Start year: {{
+    volume.results.start_year }}</h4>
+  <b>
+    <p *ngIf="volume.results.deck == null; else elseBlock"
+      style="margin-left: 9.5cm; position: absolute; top: 4cm; font-size: 18px; letter-spacing: 0.1em;">
+      This Volume has no description available</p>
+    <ng-template #elseBlock>
+      <p style="margin-left: 9.5cm; position: absolute; top: 3.7cm;letter-spacing: 0.1em;">{{ volume.results.deck }}</p>
+    </ng-template>
+  </b>
+  <div style="position: absolute; margin-left: 9.5cm; top: 6.5cm;"
+    *ngIf="volume.results.concepts && volume.results.concepts.length > 0">
+    <ng-container *ngFor="let c of volume.results.concepts; let i = index">
+      <button *ngIf="i < 24" class="btn btn-outline-dark border-3" style="margin: 3px; border-radius: 0px;" disabled>
+        <strong>{{ c.name }}</strong>
+      </button>
+    </ng-container>
+    <span *ngIf="volume.results.concepts.length > 24">...</span>
+  </div>
+</div>
+<div
+  style=" padding: 10px; position: absolute; top: calc(50% + 9.5cm); left: 50%; transform: translateX(-50%); width: 30cm; height: 12cm">
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item border border-dark border-2">
+      <a class="nav-link active" data-bs-toggle="tab" href="#home">Description</a>
+    </li>
+    <li class="nav-item border border-dark border-2">
+      <a class="nav-link" data-bs-toggle="tab" href="#menu1">List of Characters</a>
+    </li>
+    <li class="nav-item border border-dark border-2">
+      <a class="nav-link" data-bs-toggle="tab" href="#menu2">List of People</a>
+    </li>
+    <li class="nav-item border border-dark border-2">
+      <a class="nav-link" data-bs-toggle="tab" href="#menu3">List of Issues</a>
+    </li>
+  </ul>
+
+  <div class="tab-content" style="font-family: 'Comic Sans MS Light', cursive; background-color: #ffe922;">
+    <div id="home" class="container tab-pane active"><br>
+      <div [innerHTML]="volume.results.description"></div>
+    </div>
+    <div id="menu1" class="container tab-pane fade character-list"><br>
+      <div class="row">
+        <div class="col-md-6">
+          <ul>
+            <li *ngFor="let c of volume.results.characters.slice(0, volume.results.characters.length / 2)">
+              <a>{{ c.name }}</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <ul>
+            <li *ngFor="let c of volume.results.characters.slice(volume.results.characters.length / 2)">
+              <a>{{ c.name }}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="menu2" class="container tab-pane fade character-list"><br>
+      <div class="row">
+        <div class="col-md-6">
+          <ul>
+            <li *ngFor="let p of volume.results.people.slice(0, volume.results.people.length / 2)">
+              <a>{{ p.name }}</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <ul>
+            <li *ngFor="let p of volume.results.people.slice(volume.results.people.length / 2)">
+              <a>{{ p.name }}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="menu3" class="container tab-pane fade"><br>
+      <div *ngFor="let i of volume.results.issues">
+        <a><strong><i class="bi bi-card-list"></i>&nbsp;</strong> {{ i.name }} # {{ i.issue_number }}</a>
+      </div>
+    </div>
+  </div>

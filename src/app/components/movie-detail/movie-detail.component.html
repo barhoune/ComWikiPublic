@@ -1,0 +1,81 @@
+<main class="content" *ngIf="movie" style="margin-top: -1.5cm;">
+  <style>
+    .content__data a {
+      color: white !important;
+      text-decoration: none !important;
+    }
+
+    .btn.btn-danger a {
+      color: white !important;
+      text-decoration: none !important;
+    }
+
+    .white-link {
+      color: white !important;
+      text-decoration: none !important;
+    }
+  </style>
+  <section class="content__main" [style]="'background-image: url(' + movie.results.image.screen_large_url + ');'">
+    <div class="content__container">
+      <div class="content__info container">
+        <img [src]="movie.results.image.medium_url">
+        <div class="content__data">
+          <h2>{{movie.results.name}}</h2>
+          <h3>{{movie.results.deck}}</h3><br>
+          <div class="row">
+            <div class="col">
+              <p style="border-style: solid; border-color: white; width: 60px; text-align: center;">
+                <strong>{{movie.results.rating}}</strong>
+              </p>
+            </div>
+            <div class="col" style="width: 120px;text-align: center;">
+              <p><i class="bi bi-calendar"></i> <strong> {{movie.results.release_date |date:'YYYY'}}</strong> </p>
+            </div>
+            <div class="col" style="width: 120px;text-align: center;">
+              <p> <i class="bi bi-clock"></i> <strong> {{movie.results.runtime}} Min </strong></p>
+            </div>
+          </div>
+          <h4>Overview</h4>
+          <p *ngIf="movie.results.description == null; else elseBlock">This movie has no description available</p>
+          <ng-template #elseBlock>
+            <p name="desc" class="description">
+              <span
+                [innerHTML]="showMore ? movie.results.description : (movie.results.description | slice:0:initialLines * 2) + '...'">
+                <a [style.color]="'white'" [style.textDecoration]="'none'"
+                  [innerHTML]="showMore ? movie.results.description : (movie.results.description | slice:0:initialLines * 2) + '...'"></a>
+              </span>
+              <button class="btn btn-link" (click)="toggleShowMore()">
+                <span [style.font-weight]="showMore ? '200' : '200'" [style.color]="showMore ? 'white' : 'white'"
+                  [style.font-size.px]="showMore ? 20 : 20" [style.margin-left.cm]="showMore ? '0' : '0'">
+                  {{ showMore ? 'Show less' : 'Show more' }}
+                </span>
+              </button>
+            </p>
+          </ng-template>
+          <h4>Categories</h4>
+          <div class="col">
+
+            <button class="btn btn-danger" *ngFor="let c of movie.results.concepts"
+              style="margin: 3px;border-radius: 17px;" disabled>
+              <a [style.color]="'white'" [style.textDecoration]="'none'">{{c.name}}</a>
+            </button>
+          </div>
+          <div class="row">
+            <div class="col">
+              <h4>studios</h4>
+              <ul *ngFor="let s of movie.results.studios ">
+                <p style="width: max-content;">{{s.name}}</p>
+              </ul>
+            </div>
+            <div class="col">
+              <h4>writers</h4>
+              <ul *ngFor="let w of movie.results.writers ">
+                <p> {{w.name}}</p>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

@@ -1,0 +1,100 @@
+.series-card {
+  width: 15rem;
+  border: 2px solid black;
+  border-radius: 6%;
+  color: black;
+  background-color: #ebc334;
+  shape-rendering: geometricPrecision;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.pl {
+  border: 5px solid black;
+}
+
+.no-results-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.page-item {
+  background-color: red;
+}
+
+.page-link {
+  color: white;
+}
+
+.page-link-red {
+  background-color: red;
+  color: white;
+}
+
+.page-link-red-text {
+  color: red;
+}
+
+.card-foggy {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+}
+
+.card-red {
+  background-color: #ebc334;
+  border: 2px solid black;
+}
+
+.text-white {
+  color: black;
+}
+
+.image-fixed-height {
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-fog-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.95));
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.series-card:hover .card-fog-overlay {
+  height: 50%;
+}
+
+.title-font {
+  font-family: 'Bahnschrift', sans-serif;
+  font-size: 27px;
+  font-weight: bold;
+
+  text-transform: lowercase;
+  line-height: 2;
+  font-variant: small-caps;
+}
+
+.publisher-text {
+  font-size: 12px;
+}
+
+.name-text {
+  font-size: 18px;
+}
+
+.card-fixed-size {
+  width: 16rem;
+  height: 10cm;
+}
+
+
+.series-card:hover {
+  transform: scale(1.05);
+}
