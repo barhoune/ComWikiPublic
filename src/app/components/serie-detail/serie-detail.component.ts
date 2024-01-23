@@ -6,7 +6,6 @@ import { ComicvineapiService } from '../../services/comicvineapi.service';
   selector: 'app-serie-detail',
   templateUrl: './serie-detail.component.html',
   styleUrls: ['./serie-detail.component.css'],
-  encapsulation: ViewEncapsulation.None
 })
 export class SerieDetailComponent implements OnInit{
 

@@ -1,82 +1,106 @@
+/* character-detail.component.css */
+/* :host {
+  display: block;
+} */
 
-  img{
-    width: 80%;
-    height: 80%;
-    margin: 3px !important;
-    border-radius: 5px;
-  }
-  figure::before{
-    float: none !important;
-    clear: both !important;
-  }
-  p::before{
-    float: none;
-    clear: both;
-  }
-  figure{
-    vertical-align: top;
-    float: left;
-    width: 32%;
-    text-align: left;
-    font-size: smaller;
-    overflow: auto;
-    position: relative;
-    margin: 3px !important;
-  }
-  figure img{
-    box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.411), 0 2px 10px 0 rgba(0, 0, 0, 0.315);
-  }
-  p+figure{
-    float:right;
-    margin: 2px !important;
-    padding-left: 5%!important;
-  }
-  a{
-    text-decoration: none;
-    color: black;
-  }
-  p{
-    display: block !important;
-    font-size: 21px;
-    font-family: 'Timeless';
-    text-align: justify;
-    letter-spacing: -0.05em;
-    margin: 3px !important;
-  }
- figcaption{
+/* Apply styles only to the inner HTML content */
+:host ::ng-deep img {
+  width: 80%;
+  height: 80%;
+  margin: 3px !important;
+  border-radius: 5px;
+}
+
+:host ::ng-deep figure::before {
+  float: none !important;
+  clear: both !important;
+}
+
+:host ::ng-deep p::before {
+  float: none;
+  clear: both;
+}
+
+:host ::ng-deep figure {
+  vertical-align: top;
+  float: left;
+  width: 32%;
+  text-align: left;
+  font-size: smaller;
+  overflow: auto;
+  position: relative;
+  margin: 3px !important;
+}
+
+:host ::ng-deep figure img {
+  box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.411), 0 2px 10px 0 rgba(0, 0, 0, 0.315);
+}
+
+:host ::ng-deep p+figure {
+  float: right;
+  margin: 2px !important;
+  padding-left: 5% !important;
+}
+
+:host ::ng-deep a {
+  text-decoration: none;
+  color: black;
+}
+
+:host ::ng-deep p {
+  display: block !important;
+  font-size: 21px;
+  font-family: 'Timeless';
+  text-align: justify;
+  letter-spacing: -0.05em;
+  margin: 3px !important;
+}
+
+:host ::ng-deep figcaption {
   font-family: 'Courier New', Courier, monospace;
   font-style: italic;
   font-weight: 600;
- }
-h2,h3,h4,br,a{
+}
+
+:host ::ng-deep h2,
+:host ::ng-deep h3,
+:host ::ng-deep h4,
+:host ::ng-deep br,
+:host ::ng-deep a {
   clear: both;
   margin-bottom: 10px;
   line-height: 40px;
 }
-h2{
-  font-size: 45px!important;
+
+:host ::ng-deep h2 {
+  font-size: 45px !important;
   font-family: 'Delta';
   letter-spacing: 0.05px;
   color: rgb(131, 0, 0);
 }
-h4{
+
+:host ::ng-deep h4 {
   font-family: 'Ubuntu';
   letter-spacing: 0.03px;
   font-weight: 800;
   color: rgba(175, 0, 0, 0.830);
 }
-h3{
+
+:host ::ng-deep h3 {
   font-size: 36px !important;
   font-family: 'American Captain';
   letter-spacing: 0.07px;
 }
-img.js-lazy-load-image{
+
+:host ::ng-deep img.js-lazy-load-image {
   display: none;
 }
-figure+p:first-letter {
+
+:host ::ng-deep figure+p:first-letter {
   font-size: 40px;
   font-weight: 800;
 }
+
 
 .fab {
   position: fixed;

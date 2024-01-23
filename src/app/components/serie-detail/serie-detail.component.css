@@ -1,42 +1,42 @@
-figure {
+:host ::ng-deep figure {
   display: none;
 }
 
-.content {
+:host ::ng-deep .content {
   color: #fff;
 }
 
-.content__main {
+:host ::ng-deep .content__main {
   background-position: right;
   background-repeat: no-repeat;
 }
 
 @media (max-width: 576px) {
-  .content__main {
+  :host ::ng-deep .content__main {
     background-position: calc((((100vw / 2.222222) - 20px) / 1.5) / 2) 0;
     background-size: cover;
   }
 }
 
-.content__container {
+:host ::ng-deep .content__container {
   padding-top: 60px;
   background-image: linear-gradient(to right, rgba(32, 32, 32, 1) calc((50vw - 170px) - 340px), rgba(32, 32, 32, 0.84) 30%, rgba(32, 32, 32, 0.84) 100%);
 }
 
 @media (max-width: 576px) {
-  .content__container {
+  :host ::ng-deep .content__container {
     background-image: none;
     padding-top: 0;
   }
 }
 
-.content__info {
+:host ::ng-deep .content__info {
   padding: 30px 0;
   display: flex;
   gap: 30px;
 }
 
-.content__info img {
+:host ::ng-deep .content__info img {
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   width: 350px;
@@ -44,32 +44,32 @@ figure {
 }
 
 @media (max-width: 576px) {
-  .content__info {
+  :host ::ng-deep .content__info {
     background-image: linear-gradient(to right, rgba(32, 32, 32, 1) 20%, rgba(32, 32, 32, 0) 50%);
   }
 
-  .content__info img {
+  :host ::ng-deep .content__info img {
     margin-left: 20px;
     width: 320px;
     height: 500px;
   }
 }
 
-.content__data,
-.content__data-mobile {
+:host ::ng-deep .content__data,
+:host ::ng-deep .content__data-mobile {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
 }
 
-.content__data p,
-.content__data-mobile p {
+:host ::ng-deep .content__data p,
+:host ::ng-deep .content__data-mobile p {
   margin-top: 0;
 }
 
-.content__data h3,
-.content__data-mobile h3 {
+:host ::ng-deep .content__data h3,
+:host ::ng-deep .content__data-mobile h3 {
   font-weight: 500;
   color: #fff;
   font-size: 1.1em;
@@ -78,50 +78,50 @@ figure {
   margin: 0;
 }
 
-.content__data h4,
-.content__data-mobile h4 {
+:host ::ng-deep .content__data h4,
+:host ::ng-deep .content__data-mobile h4 {
   margin: 15px 0;
 }
 
-.content__data--categories,
-.content__data-mobile--categories {
+:host ::ng-deep .content__data--categories,
+:host ::ng-deep .content__data-mobile--categories {
   display: flex;
   gap: 6px;
 }
 
 @media (max-width: 576px) {
-
-  .content__data,
-  .content__data-mobile {
+  :host ::ng-deep .content__data,
+  :host ::ng-deep .content__data-mobile {
     display: none;
   }
 
-  .content__data h2,
-  .content__data-mobile h2 {
+  :host ::ng-deep .content__data h2,
+  :host ::ng-deep .content__data-mobile h2 {
     margin: 0;
     font-size: 1.25rem;
   }
 
-  .content__data h3,
-  .content__data-mobile h3 {
+  :host ::ng-deep .content__data h3,
+  :host ::ng-deep .content__data-mobile h3 {
     margin-top: 10px;
   }
 
-  .content__data h4,
-  .content__data-mobile h4 {
+  :host ::ng-deep .content__data h4,
+  :host ::ng-deep .content__data-mobile h4 {
     margin: 10px 0;
   }
 
-  .content__data p,
-  .content__data-mobile p {
+  :host ::ng-deep .content__data p,
+  :host ::ng-deep .content__data-mobile p {
     font-size: 0.9rem;
   }
 }
-.lightred,
-a,
-h1,
-h2,
-h4 {
+
+:host ::ng-deep .lightred,
+:host ::ng-deep a,
+:host ::ng-deep h1,
+:host ::ng-deep h2,
+:host ::ng-deep h4 {
   color: rgba(255, 0, 0, 0.445) !important;
   font-weight: bolder;
 }

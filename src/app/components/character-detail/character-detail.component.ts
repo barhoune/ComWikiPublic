@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ComicvineapiService } from '../../services/comicvineapi.service';
 
@@ -10,7 +10,6 @@ interface TocItem {
   selector: 'app-character-detail',
   templateUrl: './character-detail.component.html',
   styleUrls: ['./character-detail.component.css'],
-  encapsulation: ViewEncapsulation.None
 })
 export class CharacterDetailComponent implements OnInit {
   character: any;
