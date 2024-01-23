@@ -77,3 +77,16 @@
   letter-spacing: 2px;
   color: goldenrod;
 }
+.page-link {
+  color: white;
+
+}
+
+.page-link-red {
+  background-color: red;
+  color: white;
+}
+
+.page-link-red-text {
+  color: red;
+}

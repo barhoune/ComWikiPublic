@@ -1,22 +1,23 @@
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <div class="container">
   <div class="row mb-4">
-    <div class="form-floating form-floating-sm">
-      <input type="text" class="form-control border-danger  border-3" [(ngModel)]="name" (input)="filterIssues()"
-        placeholder="Search">
-      <label for="floatingInput"> &nbsp; Search <b style="color: lightcoral;">Issue</b> </label>
-    </div>
+  <div class="form-floating form-floating-sm">
+    <input type="text" class="form-control border-danger  border-3"  [(ngModel)]="name" (input)="filterIssues()" placeholder="Search">
+    <label for="floatingInput"> &nbsp; Search <b style="color: lightcoral;">Issue</b> </label>
   </div>
-  <div *ngIf="showloader" class="mt-5 text-center">
-    <img src="assets/loading.gif" style="width: 8%; margin-top: 15%;margin-bottom: 15%;" />
-  </div>
+</div>
+<div *ngIf="showloader" class="mt-5 text-center">
+  <img src="../../assets/loading.gif" style="width: 8%; margin-top: 15%;margin-bottom: 15%;"/>
+</div>
   <div class="row row-cols-5 g-3">
-    <div class="col" *ngFor="let i of paginateIssues()" style="width:15rem;">
-      <div class="card h-100 border-black border-4 grow" style="background-color: rgb(238, 202, 0); border-radius: 0%;">
-        <!-- <div  class="card h-100 border-black border-4 grow" style="background-color: rgb(238, 202, 0); border-radius: 0%;" [routerLink]="['/issues/issue', i.id]"> -->
+    <div class="col" *ngFor="let i of paginateIssues()" style="width:15rem; margin-left: 5%;">
+      <div  class="card h-100 border-black border-4 grow" style="background-color: rgb(238, 202, 0); border-radius: 0%;" >
+      <!-- <div  class="card h-100 border-black border-4 grow" style="background-color: rgb(238, 202, 0); border-radius: 0%;" [routerLink]="['/issues/issue', i.id]"> -->
         <img class="card-img-top" [src]="i.image.medium_url" style="overflow: hidden;height: 300px; border-radius: 0%;">
         <div class="card-body border-black border-5">
-          <p> <b style="font-family: Comic Sans MS Light; font-size: 13px;">{{i.volume.name}} </b># {{i.issue_number}}
-          </p>
+          <p> <b style="font-family: Comic Sans MS Light; font-size: 13px;">{{i.volume.name}} </b># {{i.issue_number}}</p>
         </div>
       </div>
     </div>
@@ -24,8 +25,7 @@
   <div class="text-center mt-4">
     <ul class="pagination justify-content-center">
       <li class="page-item" [class.disabled]="currentPage === 1">
-        <a class="page-link page-link-red" (click)="previousPage()" tabindex="-1"
-          [attr.aria-disabled]="currentPage === 1">Previous</a>
+        <a class="page-link page-link-red" (click)="previousPage()" tabindex="-1" [attr.aria-disabled]="currentPage === 1">Previous</a>
       </li>
       <li class="page-item" *ngFor="let page of getPages()">
         <a class="page-link page-link-red-text" (click)="goToPage(page)">{{page}}</a>

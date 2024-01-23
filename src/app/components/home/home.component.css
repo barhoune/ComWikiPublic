@@ -68,3 +68,12 @@ img {
   border: 2px solid red;
   width: 270px;
 }
+.textt7t{
+  position: absolute; margin-top: 125%; margin-left: 7cm; text-align: left; color: white;
+}
+@media (max-width:1024px) {
+ h1,h2,h3,p{
+  transform: scale(0.8);
+ }
+
+}

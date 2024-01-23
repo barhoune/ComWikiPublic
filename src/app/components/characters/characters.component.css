@@ -78,11 +78,6 @@
   width: 100%;
   object-fit: cover;
 }
-
-.page-item {
-  background-color: red;
-}
-
 .page-link {
   color: white;
 

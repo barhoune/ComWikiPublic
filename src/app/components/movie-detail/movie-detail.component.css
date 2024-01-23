@@ -126,7 +126,9 @@
 .description {
   display: inline;
 }
-
+whitet{
+  color:#fff !important;
+}
 .white-text a {
   color: white;
   text-decoration: none;

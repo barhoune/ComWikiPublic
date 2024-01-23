@@ -1,3 +1,6 @@
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <main class="content" *ngIf="movie" style="margin-top: -1.5cm;">
   <style>
     .content__data a {
@@ -20,8 +23,8 @@
       <div class="content__info container">
         <img [src]="movie.results.image.medium_url">
         <div class="content__data">
-          <h2>{{movie.results.name}}</h2>
-          <h3>{{movie.results.deck}}</h3><br>
+          <h2 class="whitet">{{movie.results.name}}</h2>
+          <h3 class="whitet">{{movie.results.deck}}</h3><br>
           <div class="row">
             <div class="col">
               <p style="border-style: solid; border-color: white; width: 60px; text-align: center;">

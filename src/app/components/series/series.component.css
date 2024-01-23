@@ -1,9 +1,9 @@
-.series-card {
+#series-card {
   width: 15rem;
   border: 2px solid black;
   border-radius: 6%;
+  background-color: black;
   color: black;
-  background-color: #ebc334;
   shape-rendering: geometricPrecision;
   position: relative;
   overflow: hidden;
@@ -21,9 +21,6 @@
   transform: translate(-50%, -50%);
 }
 
-.page-item {
-  background-color: red;
-}
 
 .page-link {
   color: white;
@@ -43,8 +40,8 @@
 }
 
 .card-red {
-  background-color: #ebc334;
-  border: 2px solid black;
+  background-color: black;
+  border: 2px solid black ;
 }
 
 .text-white {
