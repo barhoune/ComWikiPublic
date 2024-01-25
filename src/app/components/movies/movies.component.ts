@@ -46,7 +46,6 @@ export class MoviesComponent {
     this.filteredMovlist = (this.movlist || [])
       .filter(movie => movie.name.toLowerCase().includes(searchTerm));
 
-    // Update total pages
     this.totalPages = Math.ceil((this.filteredMovlist.length || 1) / this.itemsPerPage);
   }
 

@@ -11,20 +11,33 @@ import { ComicvineapiService } from 'src/app/services/comicvineapi.service';
 export class AdvancedSearchComponent {
   constructor(private service: ComicvineapiService, private route: Router) {
   }
- resSelect: string = "character";
+
+  resSelect: string = "character";
   Query!: string;
-  Offset=1;
+  Offset = 1;
   SearchResult?: Array<SearchResponse>;
-  // resSelect = [
-  //   { name: 'Character', value: 'character', link:"['/characters/character',item.id] "},
-  //   { name: 'Volumes', value: 'volume', link:'/volumes/volume' },
-  // ]
-  getResults(){
+  showloader = false;
+  showmessage = false;
+
+  getResults() {
+    this.showloader = true;
+    this.showmessage = false; // Reset the showmessage variable
+    this.SearchResult = [];
 
     this.service.searchData(this.Query, this.resSelect, this.Offset)
-    .subscribe((results) =>{
-      this.SearchResult= results;
-      console.table(results);
-    });
+      .subscribe((results) => {
+        this.showloader = false;
+
+        if (results && results.length > 0) {
+          this.SearchResult = results;
+        } else {
+          this.showmessage = true;
+        }
+
+        console.table(results);
+      }, (error) => {
+        this.showloader = false;
+        console.error('Error fetching search results:', error);
+      });
   }
 }

@@ -27,13 +27,19 @@ export class CharactersComponent {
 
   GetCharacters(offset: any) {
     this.showloader = true;
-    this.charlist = [];
-    this.filteredCharlist = [];
+
     this.service.getCharacters(offset).subscribe((result) => {
-      this.charlist = result;
+      this.charlist.push(...result);
+      this.filteredCharlist = this.charlist;
       this.showloader = false;
-      this.filteredCharlist = result;
-      this.totalPages = Math.ceil(this.filteredCharlist.length / this.itemsPerPage);
+      const newTotalPages = Math.ceil(
+      this.filteredCharlist.length / this.itemsPerPage
+      );
+      if (this.totalPages !== newTotalPages) {
+        this.totalPages = newTotalPages;
+        this.currentPage = Math.min(this.currentPage, this.totalPages);
+      }
+
       console.table(result);
     });
   }
@@ -42,9 +48,14 @@ export class CharactersComponent {
     const searchTerm = event.target.value.toLowerCase();
     this.currentPage = 1;
     this.filteredCharlist = this.charlist.filter((c: any) => {
-      return c.name.toLowerCase().includes(searchTerm) || c.publisher.name.toLowerCase().includes(searchTerm);
+      return (
+        c.name.toLowerCase().includes(searchTerm) ||
+        c.publisher.name.toLowerCase().includes(searchTerm)
+      );
     });
-    this.totalPages = Math.ceil(this.filteredCharlist.length / this.itemsPerPage);
+    this.totalPages = Math.ceil(
+      this.filteredCharlist.length / this.itemsPerPage
+    );
     window.scrollTo(0, 0); // Scroll to top
   }
 
@@ -64,13 +75,13 @@ export class CharactersComponent {
   nextPage() {
     if (this.currentPage < this.totalPages) {
       this.currentPage++;
+      window.scrollTo(0, 0);
     } else {
-      this.currentPage = 1;
       this.offset = this.offset + 100;
       console.log(this.offset);
       this.GetCharacters(this.offset);
     }
-    window.scrollTo(0, 0); // Scroll to top
+
   }
 
   pagesArray(): number[] {

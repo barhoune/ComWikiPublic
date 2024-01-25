@@ -5,11 +5,11 @@ import {
   HttpHandler,
   HttpRequest,
   HttpResponse,
+  HttpErrorResponse,
 } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { CachingService } from './caching.service';
-
 
 @Injectable()
 export class CachingInterceptor implements HttpInterceptor {
@@ -19,25 +19,36 @@ export class CachingInterceptor implements HttpInterceptor {
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    // Check if the request is a GET request
     if (request.method !== 'GET') {
       return next.handle(request);
     }
 
-    // Check if the response is already in the cache
     const cachedResponse = this.cachingService.getFromCache(request.url);
     if (cachedResponse) {
-      // Return cached response as an observable
       return of(new HttpResponse({ body: cachedResponse }));
     }
 
-    // If not in the cache, make the API call and cache the response
     return next.handle(request).pipe(
-      tap((event) => {
-        if (event instanceof HttpResponse) {
-          this.cachingService.addToCache(request.url, event.body);
+      tap(
+        (event) => {
+          if (event instanceof HttpResponse) {
+            this.cachingService.addToCache(request.url, event.body);
+          }
+        },
+        (error) => {
+          if (error instanceof HttpErrorResponse && !this.isErrorResponseExcluded(error)) {
+            console.log("error saving data, no respose to save")
+          }
         }
-      })
+      )
     );
+  }
+
+  private isSuccessfulResponse(response: HttpResponse<any>): boolean {
+    return response.status >= 200 && response.status < 300;
+  }
+
+  private isErrorResponseExcluded(error: HttpErrorResponse): boolean {
+    return true;
   }
 }
